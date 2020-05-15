@@ -7,7 +7,7 @@ function getSwGuy(){
   let guyID = document.getElementById("sw-id").value;
 
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
+  xhr.onreadystatechange = ()=>{
     console.log("in state exchange");
     if(xhr.readyState == 4 && xhr.status == 200){
       console.log(xhr.responseText);
@@ -15,11 +15,12 @@ function getSwGuy(){
       loadSwGuy(swGuy);
     }
   };
-  xhr.open("GET", "https://swapi.dev/api/people/" + guyID, true);
+  xhr.open("GET", "https://swapi.dev/api/people/"
+          + guyID, true);
   xhr.send();
 }
 
-window.onload = () => {
+window.onload = ()=>{
   console.log("onloading");
   document.getElementById("sw-submit")
           .addEventListener("click", getSwGuy, false);
